@@ -1,6 +1,7 @@
 const webpack = require('webpack'); 
 const merge = require('webpack-merge');
 const path = require('path');
+const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // parts config
 const parts = require('./webpack.parts');
@@ -24,10 +25,14 @@ const common = merge([
 		},
 		plugins: [
 			new HtmlWebpackPlugin({
-				title: 'todo',
+				title: 'explore products Walmart',
 				template: require('html-webpack-template'),
 				inject: false, // remove duplicates css tags and script tags
 				appMountId: 'app'
+			}),
+			new webpack.ProvidePlugin({
+				$: 'jquery',
+				jQuery: 'jquery'
 			}),
 			new webpack.HotModuleReplacementPlugin()
 		]
@@ -35,30 +40,19 @@ const common = merge([
 ]);
 
 const development = merge([
-	{
-		module: {
-			rules: [
-				{
-					test: /\.css$/,
-					use: ['style-loader', 'css-loader']
-				},
-				{
-					test: /\.(js|jsx)$/,
-					use: ['babel-loader'],
-					exclude: /node_modules/
-				}
-			]
-		},
-		devServer: {
-			hot: true
-		},
-	},
+	parts.loadJS(),
+	parts.loadSCSS(),
+	parts.devServer()
 ]);
 
 const production = merge([
 	parts.clean( PATHS.build ),
-	parts.loadJavaScript(),
-	parts.extractCSS(),
+	parts.loadJS(),
+	parts.extractSCSS(),
+	// Ngebug bootstrap
+	// parts.purifyCSS( {
+	// 	paths: glob.sync(`${PATHS.app}/**/*.js`, { nodir: true} )
+	// } )
 ]);
 
 module.exports = mode => {
