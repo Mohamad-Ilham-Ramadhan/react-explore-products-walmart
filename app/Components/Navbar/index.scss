@@ -1,0 +1,54 @@
+.navbar {
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+	width: 100%;
+	margin-right: 0;
+
+	h4 {
+		color: $gray-700;
+	}
+}
+
+.form-search {
+	width: 450px;
+	margin-top: 20px;
+	
+	.form-group-search {
+		position: relative;
+
+		.input-search {
+			display: inline-block;
+			vertical-align: middle;
+			border: none;
+			border-bottom: 1px solid $gray-300;
+			border-color: $gray-700;
+			border-radius: 0;
+			transition: .3s;
+
+			&:focus, &:active {
+				outline: 0;
+				box-shadow: none !important;
+				border-color: $blue;
+				padding-left: 30px;
+
+				&::placeholder {
+					color: $blue;
+				}
+			}
+		}
+		.btn-search {
+			position: absolute;
+			top: 0;
+			right: -2px;
+			border-radius: 5px;
+
+			&:focus, &:active {
+				outline: 0;
+				box-shadow: none !important;
+			}
+		}
+	}
+
+}

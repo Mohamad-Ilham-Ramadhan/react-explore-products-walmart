@@ -1,5 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
+@import './Components/Navbar/index.scss';
 
-.body {
-	background: tomato;
+body {
+	height: 100vh;
+	background: $gray-200;
 }
