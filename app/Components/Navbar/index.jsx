@@ -12,11 +12,6 @@ class Navbar extends React.Component {
 		return (
             <nav className="navbar navbar-light bg-white pb-4">
                 <div className="container-fluid">
-                    <div className="navbar-brand">
-                        <h4 className="text-center">Explore Walmart Products</h4>
-                    </div>
-                </div>
-                <div className="container-fluid">
                     <form className="form-search mx-auto">
                         <div className="form-group form-group-search mb-0">
                             <input type="text" className="form-control input-search" placeholder="Search products..."/>

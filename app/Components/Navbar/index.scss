@@ -1,3 +1,5 @@
+$primary-blue: #3979c9;
+
 .navbar {
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
 }
@@ -30,11 +32,11 @@
 			&:focus, &:active {
 				outline: 0;
 				box-shadow: none !important;
-				border-color: $blue;
+				border-color: $primary-blue;
 				padding-left: 30px;
 
 				&::placeholder {
-					color: $blue;
+					color: $primary-blue;
 				}
 			}
 		}
@@ -43,10 +45,16 @@
 			top: 0;
 			right: -2px;
 			border-radius: 5px;
+			background: transparent;
+			border-color: transparent;
+			color: $primary-blue;
 
 			&:focus, &:active {
 				outline: 0;
 				box-shadow: none !important;
+				background: transparent;
+				border-color: transparent;
+				color: inherit;
 			}
 		}
 	}
