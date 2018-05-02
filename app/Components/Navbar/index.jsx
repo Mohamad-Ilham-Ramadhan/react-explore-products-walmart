@@ -1,6 +1,5 @@
 import React from 'react';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-
+import Search from '../Search/index';
 
 class Navbar extends React.Component {
 	constructor(props) {
@@ -8,16 +7,16 @@ class Navbar extends React.Component {
 	}
 
 	render() {
+		const { fetchProducts, searchQuery, numItems } = this.props;
 
 		return (
             <nav className="navbar navbar-light bg-white pb-4">
                 <div className="container-fluid">
-                    <form className="form-search mx-auto">
-                        <div className="form-group form-group-search mb-0">
-                            <input type="text" className="form-control input-search" placeholder="Search products..."/>
-                            <button className="btn btn-primary btn-search"><FontAwesomeIcon icon="search"/></button>
-                        </div>
-                    </form>
+                	<Search 
+                		searchQuery={ searchQuery }
+                		numItems={ numItems }
+                		fetchProducts={ fetchProducts }
+                	/>
                 </div>
             </nav>
 		);

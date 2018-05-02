@@ -1,7 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 @import './Components/Navbar/index.scss';
-
+@import './Components/Search/index.scss';
+																								
 body {
 	height: 100vh;
 	background: $gray-200;
-}
+}											
