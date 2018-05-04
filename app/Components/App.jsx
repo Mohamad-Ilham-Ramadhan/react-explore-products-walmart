@@ -1,6 +1,8 @@
 import React from 'react';
-import Navbar from './Navbar';
+import Navbar from './Navbars/main';
 import axios from 'axios';
+
+const path = require('path');
 
 const hn = 'http://hn.algolia.com/api/v1/search?query=';
 const APIURI = 'http://api.walmartlabs.com/v1/search?';
@@ -36,9 +38,17 @@ class App extends React.Component {
 	fetchProducts = ( searchQuery, numItems, event ) => {
 		const endPoint = `${APIURI}apikey=${APIKey}&query=${searchQuery}`;
 		const hnEndPoint = `${hn}${searchQuery}`;
+
+		if ( document.location.port != "" ) {
+			axios.get( 'http://localhost/react_projects/react-explore-products-walmart/proxy.php?search='+encodeURIComponent(endPoint))
+			.then( res => { console.log( res.data ) })
+			.catch( err => { console.log( err) })
+
+			return;
+		}
 		
-		axios.get('http://localhost/react_projects/react-explore-products-walmart/proxy.php?search='+encodeURIComponent(endPoint))
-		.then( res => { console.log( res.data ) })
+		axios.get( document.location.href+'proxy.php?search='+encodeURIComponent(endPoint))
+		.then( res => { console.log( res ) })
 		.catch( err => { console.log( err) })
 	}
 }

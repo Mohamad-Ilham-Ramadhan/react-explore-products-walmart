@@ -46,7 +46,7 @@ const development = merge([
 ]);
 
 const production = merge([
-	parts.clean( PATHS.build ),
+	// parts.clean( PATHS.build ),
 	parts.loadJS(),
 	parts.extractSCSS(),
 	// Ngebug bootstrap
