@@ -1,8 +1,30 @@
 @import '~bootstrap/scss/bootstrap';
 @import './Components/Navbars/main.scss';
 @import './Components/Forms/search.scss';
+@import './Components/Blocks/product.scss';
+@import './Components/Cards/product.scss';
 																								
 body {
 	height: 100vh;
 	background: $gray-200;
-}											
+}	
+
+.card-product {
+	background: white;
+	transition: .2s;
+
+	&:hover {
+	    box-shadow: 1px 5px 10px -1px rgba(0, 0, 0, 0.1);
+	}
+}			
+
+.flash {
+	width: 100%;
+	text-align: center;
+	color: $gray-600;
+	font-size: 13rem;
+
+	p {
+		font-size: 3rem;
+	}
+}							

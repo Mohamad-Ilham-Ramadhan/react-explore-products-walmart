@@ -1,6 +1,7 @@
 <?php 
 	$url = $_GET['search'];
-		
+	$url = str_replace(' ', '%20', $url);
+
 	$curl = curl_init(); // $curl is going to be data type curl resource 
 
 	curl_setopt($curl, CURLOPT_URL, $url);

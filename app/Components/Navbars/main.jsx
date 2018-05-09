@@ -7,7 +7,7 @@ class Navbar extends React.Component {
 	}
 
 	render() {
-		const { fetchProducts, searchQuery, numItems } = this.props;
+		const { fetchProducts, updateSearchKeyValue, searchQuery, numItems } = this.props;
 
 		return (
             <nav className="navbar navbar-light bg-white pb-4">
@@ -16,6 +16,7 @@ class Navbar extends React.Component {
                 		searchQuery={ searchQuery }
                 		numItems={ numItems }
                 		fetchProducts={ fetchProducts }
+                        updateSearchKeyValue={ updateSearchKeyValue }
                 	/>
                 </div>
             </nav>
