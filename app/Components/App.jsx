@@ -25,7 +25,7 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { totalResults, items, searchKey, numItems, error } = this.state;
+		const { totalResults, items, searchKey, numItems, error, isLoading } = this.state;
 
 		console.log( this.state );
 
@@ -42,12 +42,14 @@ class App extends React.Component {
 				<BlockProduct 
 					items={ items }
 					error={ error }
+					isLoading={ isLoading }
 				/>
 			</div>
 		)
 	}
 
 	fetchProducts = ( ) => {
+		this.setState( { isLoading: true } );
 
 		const endPoint = `${APIURI}apikey=${APIKey}&query=${this.state.searchKey}&numItems=${this.state.numItems}`;
 
@@ -58,21 +60,24 @@ class App extends React.Component {
 				if ( res.data == 0 ) {
 					this.setState( { 
 						items: [],
-						error: 'Check your internet connection!'
+						error: 'Check your internet connection!',
+						isLoading: false,
 					} )
 					return;
 				} 
 				if ( res.data.errors ) {
 					this.setState({
 						items: [],
-						error: res.data.errors[0].message
+						error: res.data.errors[0].message,
+						isLoading: false,
 					})
 					return;
 				}
 				if ( res.data.message ) {
 					this.setState({
 						items: [],
-						error: res.data.message
+						error: res.data.message,
+						isLoading: false,
 					})
 
 					return;
@@ -80,7 +85,8 @@ class App extends React.Component {
 				this.setState( { 
 					items: res.data.items,
 					totalResults: res.data.totalResults,
-					error: null
+					error: null,
+					isLoading: false,
 				} )
 			})
 			.catch( err => { console.log( err) })
