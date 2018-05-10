@@ -12,4 +12,40 @@
 		min-height: 253px;
 		padding: 1.25rem;
 	}
+
+	.card-text {
+		font-size: 0.9rem;
+	}
+
+	.rating {
+		font-size: 0.7rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+
+		.layers-star {
+			width: 1.1em;
+			margin-right: 0.5rem;
+		}
+		
+		.star {
+			display: inline-block;
+			margin-right: 0.5rem;
+		}
+
+		.star-full {
+			color: $gray-900;
+		}
+		.star-empty {
+			color: $gray-300;
+		}
+	}
+
+	.sale-price {
+		.msrp {
+			margin-right: 1rem;
+			color: $gray-200;
+			text-decoration: line-through;
+			font-size: 0.9rem;
+		}
+	}
 }	

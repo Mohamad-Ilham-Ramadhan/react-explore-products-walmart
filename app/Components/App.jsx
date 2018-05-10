@@ -27,8 +27,6 @@ class App extends React.Component {
 	render() {
 		const { totalResults, items, searchKey, numItems, error, isLoading } = this.state;
 
-		console.log( this.state );
-
 		return (
 			<div>
 				<Navbar

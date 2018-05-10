@@ -18,21 +18,21 @@ class Product extends React.Component {
 			<div className="block-product">
 				<div className="container">
 					<div className="row">
-						{ ( isLoading ) ? 
+						{ ( isLoading ) ? // Loading
 							<LoadingProduct />
-							:
+							: // is items 
 							(items.length > 0) ?
 								items.map( item => 
 								<div className="col-lg-3 col-sm-6">
-									<CardProduct name={ item.name } largeImage={ item.largeImage }/>
+									<CardProduct name={ item.name } largeImage={ item.largeImage } msrp={ item.msrp } salePrice={ item.salePrice } customerRating={ item.customerRating } numReviews={ item.numReviews } />
 								</div>
-							) :
+							) : // is error
 								( error !== null ) ? 
 									<div className="flash">
 										<FontAwesomeIcon icon={ faTimesCircle } />
 										<p>{ error }</p>
 									</div>
-									: 
+									: // is error null
 									<div className="flash">
 										<FontAwesomeIcon icon={ faSmile } />
 										<p>Cari aja!</p>
