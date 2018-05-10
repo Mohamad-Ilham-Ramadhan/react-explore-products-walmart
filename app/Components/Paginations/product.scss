@@ -1,0 +1,16 @@
+.pagination-product {
+
+	.page-link {
+		color: $gray-600;
+
+		&:hover {
+			background: #fff;
+			color: $primary-blue;
+		}
+	}
+	.page-gap {
+		&:hover {
+			color: $gray-600;
+		}
+	}
+}

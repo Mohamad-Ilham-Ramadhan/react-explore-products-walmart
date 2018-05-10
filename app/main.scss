@@ -1,9 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
+
+$primary-blue: #3979c9;
+
+
 @import './Components/Navbars/main.scss';
 @import './Components/Forms/search.scss';
 @import './Components/Blocks/product.scss';
 @import './Components/Cards/product.scss';
 @import './Components/Loadings/product.scss';
+@import './Components/Paginations/product.scss';
 																								
 body {
 	height: 100vh;

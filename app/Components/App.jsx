@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbars/main';
 import BlockProduct from './Blocks/product';
+import PaginationProduct from './Paginations/product';
 
 import axios from 'axios';
 
@@ -42,6 +43,7 @@ class App extends React.Component {
 					error={ error }
 					isLoading={ isLoading }
 				/>
+				<PaginationProduct />
 			</div>
 		)
 	}
