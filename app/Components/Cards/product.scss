@@ -25,6 +25,10 @@
 		.layers-star {
 			width: 1.1em;
 			margin-right: 0.5rem;
+
+			.star {
+				margin-right: 0 !important;
+			}
 		}
 		
 		.star {
@@ -42,8 +46,8 @@
 
 	.sale-price {
 		.msrp {
-			margin-right: 1rem;
-			color: $gray-400;
+			margin-left: 1rem;
+			color: $gray-500;
 			text-decoration: line-through;
 			font-size: 0.9rem;
 		}

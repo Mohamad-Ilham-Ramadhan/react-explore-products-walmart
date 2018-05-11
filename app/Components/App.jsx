@@ -19,7 +19,7 @@ class App extends React.Component {
 			totalResults: null,
 			items: [],
 			searchKey: '',
-			numItems: 8,
+			numItems: 16,
 			isLoading: false,
 			error: null,
 		}
@@ -123,22 +123,6 @@ class App extends React.Component {
 				} )
 			})
 			.catch( err => { console.log( err) })
-				
-		// .then( res => { 
-		// 	if ( res.data == 0 ) {
-		// 		this.setState( { 
-		// 			items: [],
-		// 			error: 'There is something wrong!'
-		// 		} )
-		// 		return;
-		// 	}
-		// 	this.setState( { 
-		// 		totalResults: res.data.totalResults,
-		// 		items: res.data.items,
-		// 		error: null
-		// 	} )
-		// })
-		// .catch( err => { console.log( err) })
 	};
 
 	updateSearchKeyValue = ( event ) => {

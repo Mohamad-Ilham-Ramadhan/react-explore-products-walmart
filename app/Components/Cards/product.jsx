@@ -23,8 +23,8 @@ class Product extends React.Component {
 						<span>{ numReviews }</span>
 					</div>
 					<div className="sale-price">
-						<span>${ this.priceFormat( salePrice ) }</span>
-						<span className="msrp">${ this.priceFormat( msrp ) }</span>
+						<span>{ this.priceFormat( salePrice ) }</span>
+						<span className="msrp">{ this.priceFormat( msrp ) }</span>
 					</div>
 				</div>
 			</div>
@@ -74,9 +74,14 @@ class Product extends React.Component {
 		var res = '.00';
 		if ( Number.isInteger( price ) ) {
 			res = price.toString() + res;
+			res = '$' + res;
 			return res;
 		}
-		return price.toString();
+		if ( price == undefined ) {
+			price = '';
+			return price
+		}
+		return '$' + price.toString();
 	}
 
 }
