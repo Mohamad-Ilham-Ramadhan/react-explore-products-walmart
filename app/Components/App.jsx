@@ -28,7 +28,7 @@ class App extends React.Component {
 	}
 
 	render() {
-		const { totalResults, items, searchKey, numItems, error, isLoading, start } = this.state;
+		const { totalResults, items, searchKey, numItems, error, isLoading, start, page } = this.state;
 
 		return (
 			<div>
@@ -49,6 +49,7 @@ class App extends React.Component {
 					start={ start }
 					totalResults={ totalResults }
 					numItems={ numItems }
+					page={ page }
 				/>
 			</div>
 		)
@@ -68,6 +69,7 @@ class App extends React.Component {
 						items: [],
 						error: 'Check your internet connection!',
 						isLoading: false,
+						totalResults: 0,
 					} )
 					return;
 				} 
@@ -76,6 +78,7 @@ class App extends React.Component {
 						items: [],
 						error: res.data.errors[0].message,
 						isLoading: false,
+						totalResults: 0,
 					})
 					return;
 				}
@@ -84,6 +87,7 @@ class App extends React.Component {
 						items: [],
 						error: res.data.message,
 						isLoading: false,
+						totalResults: 0,
 					})
 
 					return;
