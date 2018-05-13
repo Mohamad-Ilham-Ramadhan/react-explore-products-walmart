@@ -16,17 +16,19 @@ class App extends React.Component {
 		super(props);
 
 		this.state = {
-			totalResults: null,
+			totalResults: 0,
 			items: [],
 			searchKey: '',
 			numItems: 16,
+			start: 1,
+			page: 1,
 			isLoading: false,
 			error: null,
 		}
 	}
 
 	render() {
-		const { totalResults, items, searchKey, numItems, error, isLoading } = this.state;
+		const { totalResults, items, searchKey, numItems, error, isLoading, start } = this.state;
 
 		return (
 			<div>
@@ -43,7 +45,11 @@ class App extends React.Component {
 					error={ error }
 					isLoading={ isLoading }
 				/>
-				<PaginationProduct />
+				<PaginationProduct 
+					start={ start }
+					totalResults={ totalResults }
+					numItems={ numItems }
+				/>
 			</div>
 		)
 	}
@@ -51,7 +57,7 @@ class App extends React.Component {
 	fetchProducts = ( ) => {
 		this.setState( { isLoading: true } );
 
-		const endPoint = `${APIURI}apikey=${APIKey}&query=${this.state.searchKey}&numItems=${this.state.numItems}`;
+		const endPoint = `${APIURI}apikey=${APIKey}&query=${this.state.searchKey}&numItems=${this.state.numItems}&start=${this.state.start}`;
 
 		( document.location.port != "" ) ?
 			axios.get( 'http://localhost/react_projects/react-explore-products-walmart/proxy.php?search='+encodeURIComponent(endPoint))

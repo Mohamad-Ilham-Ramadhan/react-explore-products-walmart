@@ -65,9 +65,7 @@ class Product extends React.Component {
 	        }
 			rating--;	
 	    }
-		return (
-			res.map( item => item )
-		);
+		return res;
 	}
 
 	priceFormat( price ) {
