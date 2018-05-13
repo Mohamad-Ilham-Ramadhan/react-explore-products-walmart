@@ -3,7 +3,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faAngleLeft from '@fortawesome/fontawesome-free-solid/faAngleLeft';
 import faAngleRight from '@fortawesome/fontawesome-free-solid/faAngleRight';
 
-class Product extends React.Component {
+class PaginationProduct extends React.Component {
 	constructor( props ) {
 		super( props )
 	}
@@ -91,4 +91,4 @@ class Product extends React.Component {
 	
 }
 
-export default Product;
+export default PaginationProduct ;

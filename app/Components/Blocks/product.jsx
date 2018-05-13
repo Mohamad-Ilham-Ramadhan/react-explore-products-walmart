@@ -24,7 +24,7 @@ class Product extends React.Component {
 							(items.length > 0) ?
 								items.map( item => 
 								<div className="col-lg-3 col-sm-6">
-									<CardProduct name={ item.name } largeImage={ item.largeImage } msrp={ item.msrp } salePrice={ item.salePrice } customerRating={ item.customerRating } numReviews={ item.numReviews } />
+									<CardProduct name={ item.name } largeImage={ item.largeImage } msrp={ item.msrp } salePrice={ item.salePrice } customerRating={ item.customerRating } numReviews={ item.numReviews } key={ item.itemId } />
 								</div>
 							) : // is error
 								( error !== null ) ? 

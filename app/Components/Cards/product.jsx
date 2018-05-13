@@ -3,7 +3,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faStar from '@fortawesome/fontawesome-free-solid/faStar';
 import faStarHalf from '@fortawesome/fontawesome-free-solid/faStarHalf';
 
-class Product extends React.Component {
+class CardProduct extends React.Component {
 	constructor(props) {
 		super(props)
 	}
@@ -84,4 +84,4 @@ class Product extends React.Component {
 
 }
 
-export default Product;
+export default CardProduct;
