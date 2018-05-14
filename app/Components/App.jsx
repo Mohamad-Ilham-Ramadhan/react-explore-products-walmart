@@ -24,6 +24,7 @@ class App extends React.Component {
 			page: 1,
 			isLoading: false,
 			error: null,
+			foo: 'foo',
 		}
 	}
 
@@ -50,6 +51,7 @@ class App extends React.Component {
 					totalResults={ totalResults }
 					numItems={ numItems }
 					page={ page }
+					onChangePage = { this.onChangePage }
 				/>
 			</div>
 		)
@@ -139,7 +141,22 @@ class App extends React.Component {
 		this.setState({
 			searchKey: event.target.value
 		})
-	}
+	};
+
+	onChangePage = ( page, numItems, event ) => {
+		event.preventDefault();
+
+		console.log( page );
+
+		const start = (( page * numItems ) - numItems ) + 1;
+
+		this.setState({
+			page: page,
+			start: start,
+		},
+			() => { console.log( this.state ) }
+		)
+	};
 
 	
 }

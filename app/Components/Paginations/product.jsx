@@ -14,14 +14,13 @@ class PaginationProduct extends React.Component {
 		return (
 			<nav aria-label="pagination nav" className="d-flex justify-content-center">
 				<ul className="pagination">
-					{ this.paginate(page, totalResults, numItems, 3) }
-					{/*{ this.paginate(1, 0, 8, 3) }*/}
+					{ this.generatePagination(page, totalResults, numItems, 3) }
 				</ul>
 			</nav>
 		);
 	}
 
-	paginate = ( page, totalResults, numItems, margin ) => {
+	generatePagination = ( page, totalResults, numItems, margin ) => {
 		if ( totalResults === 0 ) {
 			return ( <div></div> );
 		}
@@ -31,8 +30,9 @@ class PaginationProduct extends React.Component {
 		var res = [];
 
 		if ( page > 1 ) {
+			const x = page - 1;
 			res.push( 	
-				<li className="page-item">
+				<li className="page-item" onClick={ ( e ) => { this.props.onChangePage(x, numItems, e) } }>
 					<a className="page-link" href="#" aria-label="Previous">
 						<span aria-hidden="true"><FontAwesomeIcon icon={faAngleLeft} /></span>
 						<span className="sr-only"></span>
@@ -46,8 +46,9 @@ class PaginationProduct extends React.Component {
 				continue;
 			}
 			if ( i == marginLeft && i > 1 ) {
+				const x = 1;
 				res.push(
-				    <li className="page-item"><a className="page-link" href="#">1</a></li>
+				    <li className="page-item" onClick={ ( e ) => { this.props.onChangePage(x, numItems, e) } }><a className="page-link" href="#">1</a></li>
 				);
 				res.push(
 					<li className="page-item disabled"><div className="page-link">...</div></li>
@@ -55,19 +56,21 @@ class PaginationProduct extends React.Component {
             }
             if ( i == page ) {
 				res.push(
-				    <li className="page-item active"><a className="page-link" href="#">{i}</a></li>
+				    <li className="page-item active"><a className="page-link" href="" onClick={ (e) => { e.preventDefault() } }>{i}</a></li>
 				);
             } else {
+            	const x = i;
 				res.push(
-				    <li className="page-item"><a className="page-link" href="#">{i}</a></li>
+				    <li className="page-item" onClick={ ( e ) => { this.props.onChangePage(x, numItems, e) } }><a className="page-link" href="#">{i}</a></li>
 				); 	
             }
 			if ( i == marginRight && i < lastPage ) {
+				const x = lastPage;
 				res.push(
 				    <li className="page-item disabled"><div className="page-link">...</div></li>
 				);
 				res.push(
-				    <li className="page-item"><a className="page-link" href="#">{lastPage}</a></li>
+				    <li className="page-item" onClick={ ( e ) => { this.props.onChangePage(x, numItems, e) } }><a className="page-link" href="#">{lastPage}</a></li>
 				);
             } 
 			if ( i >= lastPage ) {
@@ -76,9 +79,10 @@ class PaginationProduct extends React.Component {
 		}
 
 		if ( page < lastPage ) {
+			const x = page + 1;
 			res.push( 	
 				<li className="page-item">
-					<a className="page-link" href="#" aria-label="Previous">
+					<a className="page-link" onClick={ ( e ) => { this.props.onChangePage(x, numItems, e) } } href="#" aria-label="Previous">
 						<span aria-hidden="true"><FontAwesomeIcon icon={faAngleRight} /></span>
 						<span className="sr-only"></span>
 					</a>

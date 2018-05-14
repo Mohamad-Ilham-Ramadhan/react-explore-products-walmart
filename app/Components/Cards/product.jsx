@@ -45,22 +45,22 @@ class CardProduct extends React.Component {
 		
 		for ( var i = 0; i < 5; i++ ) {
 			if ( rating >= 1 ) {
-				res.push(<FontAwesomeIcon icon={ faStar } className="star star-full"/>);
+				res.push(<FontAwesomeIcon key={ i } icon={ faStar } className="star star-full"/>);
 				
 	        } else if( rating < 1 ) {
 				if ( rating < 0.3 ) {
-					res.push(<FontAwesomeIcon icon={ faStar} className="star star-empty" />);
+					res.push(<FontAwesomeIcon key={ i } icon={ faStar} className="star star-empty" />);
 					
 	            } else if ( rating >= 0.3 && rating < 0.8 ) {
 					res.push(
-						<span className="fa-layers layers-star fa-fw">
+						<span key={ i } className="fa-layers layers-star fa-fw">
 							<FontAwesomeIcon icon={ faStar } className="star star-empty" />
 							<FontAwesomeIcon icon={ faStarHalf } className="star star-half" />
 						</span>
 					);
 					
 	            } else if ( rating >= 0.8 ) {
-					res.push( <FontAwesomeIcon icon={ faStar } lassName="star star-full"/> );
+					res.push( <FontAwesomeIcon key={ i } icon={ faStar } lassName="star star-full"/> );
 	            }
 	        }
 			rating--;	

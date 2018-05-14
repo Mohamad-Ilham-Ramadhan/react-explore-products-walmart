@@ -6,7 +6,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faTimesCircle from '@fortawesome/fontawesome-free-regular/faTimesCircle';
 import faSmile from '@fortawesome/fontawesome-free-regular/faSmile';
 
-class Product extends React.Component {
+class BlockProduct extends React.Component {
 	constructor(props) {
 		super(props)
 	}
@@ -23,8 +23,8 @@ class Product extends React.Component {
 							: // is items 
 							(items.length > 0) ?
 								items.map( item => 
-								<div className="col-lg-3 col-sm-6">
-									<CardProduct name={ item.name } largeImage={ item.largeImage } msrp={ item.msrp } salePrice={ item.salePrice } customerRating={ item.customerRating } numReviews={ item.numReviews } key={ item.itemId } />
+								<div key={ item.itemId } className="col-lg-3 col-sm-6">
+									<CardProduct key={ item.itemId } name={ item.name } largeImage={ item.largeImage } msrp={ item.msrp } salePrice={ item.salePrice } customerRating={ item.customerRating } numReviews={ item.numReviews } />
 								</div>
 							) : // is error
 								( error !== null ) ? 
@@ -45,4 +45,4 @@ class Product extends React.Component {
 	}
 }
 
-export default Product;
+export default BlockProduct;
