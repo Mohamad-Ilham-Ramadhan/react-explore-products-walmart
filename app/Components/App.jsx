@@ -109,21 +109,27 @@ class App extends React.Component {
 				if ( res.data == 0 ) {
 					this.setState( { 
 						items: [],
-						error: 'Check your internet connection!'
+						error: 'Check your internet connection!',
+						isLoading: false,
+						totalResults: 0,
 					} )
 					return;
 				} 
 				if ( res.data.errors ) {
 					this.setState({
 						items: [],
-						error: res.data.errors[0].message
+						error: res.data.errors[0].message,
+						isLoading: false,
+						totalResults: 0,
 					})
 					return;
 				}
 				if ( res.data.message ) {
 					this.setState({
 						items: [],
-						error: res.data.message
+						error: res.data.message,
+						isLoading: false,
+						totalResults: 0,
 					})
 
 					return;
@@ -131,7 +137,8 @@ class App extends React.Component {
 				this.setState( { 
 					items: res.data.items,
 					totalResults: res.data.totalResults,
-					error: null
+					error: null,
+					isLoading: false,
 				} )
 			})
 			.catch( err => { console.log( err) })
@@ -154,7 +161,9 @@ class App extends React.Component {
 			page: page,
 			start: start,
 		},
-			() => { console.log( this.state ) }
+			() => { 
+				this.fetchProducts();
+			}
 		)
 	};
 
